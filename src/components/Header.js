@@ -38,6 +38,7 @@ const Container = styled.div`
     align-items:center; 
     justify-content:center;
     position:relative;
+    box-shadow: 0 1px 0 0 rgb(255 255 255 / 10%);
 ` 
 
 const Main = styled.div`
@@ -47,7 +48,8 @@ const Main = styled.div`
 `
 
 const SearchContainer = styled.div`
-    min-width:400px;   
+    min-width:200px;
+    width:400px;    
     margin-left:8px;
     margin-right:8px; 
 `
