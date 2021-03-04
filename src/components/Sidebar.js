@@ -6,6 +6,11 @@ import AddIcon from '@material-ui/icons/Add';
 
 function Sidebar(props) {
 
+    const addChannel = () => {
+        const promptMessage = prompt("Enter Channel Name:");
+        console.log(promptMessage);
+    }
+
     return (
         <Container>
             <WorkSpaceContainer>
@@ -31,7 +36,7 @@ function Sidebar(props) {
                     <div>
                         Channels
                     </div>
-                    <AddIcon/>
+                    <AddIconImg onClick={addChannel}/>
                 </NewChannelContainer>
                 <ChannelsList>
                     {props.rooms.map((data,key) => (    //In map function use small bracket because we are wrighting code inside HTML tags.
@@ -75,6 +80,10 @@ const NewMessage = styled.div`
     justify-content:center;
     border-radius:50%;
     margin-right:20px;
+    cursor:pointer;
+`
+
+const AddIconImg = styled(AddIcon)`
     cursor:pointer;
 `
 
