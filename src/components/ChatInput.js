@@ -58,7 +58,7 @@ const SendButton = styled.div`
     cursor:pointer;
     color:white;
 
-    .MuiSvgIcon-root{            
+    .MuiSvgIcon-root{           // Note ClassName has been called inside parent Tag.*** 
         width:16px;
     }
 `
