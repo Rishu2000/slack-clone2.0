@@ -3,12 +3,15 @@ import styled from "styled-components"
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import {sidebarItems} from "../data/SidebarData"
 import AddIcon from '@material-ui/icons/Add';
+import db from "../firebase"
 
 function Sidebar(props) {
 
     const addChannel = () => {
         const promptMessage = prompt("Enter Channel Name:");
-        console.log(promptMessage);
+        db.collection('rooms').add({
+            name:promptMessage
+        })
     }
 
     return (
