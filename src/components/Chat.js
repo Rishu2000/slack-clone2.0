@@ -1,11 +1,75 @@
 import React from 'react'
+import styled from "styled-components"
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 function Chat() {
     return (
-        <div>
-            Chat
-        </div>
+        <Container>
+            <Header>
+                <ChannelInfo>
+                    <ChannelName>
+                        # clever
+                    </ChannelName>
+                    <ChannelDisc>
+                        Company-wise announcements and work-based matters.
+                    </ChannelDisc>
+                </ChannelInfo>
+                <ChannelDetail>
+                    <Text>Details</Text>
+                    <Info/>
+                </ChannelDetail>
+            </Header>
+            <ChatContainer></ChatContainer>
+            <SendContainer></SendContainer>
+        </Container>
     )
 }
 
 export default Chat
+
+
+const Container = styled.div`
+    display:grid;
+    grid-template-rows:64px auto min-content;
+`
+
+const Header = styled.div`
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-left:20px;
+    padding-right:20px;
+    border:1px solid #cccccc;
+    background:#a6a6a6;
+`
+
+const ChannelInfo = styled.div`
+`
+
+const ChannelName = styled.div`
+    font-weight:700;
+`
+
+const ChannelDisc = styled.div`
+    font-weight:400;
+    font-size:13px;
+`
+
+const ChannelDetail = styled.div`
+    display:flex;
+    align-items:center;
+`
+
+const Text = styled.div``
+
+const Info = styled(InfoOutlinedIcon)`
+    padding:8px;
+`
+
+const ChatContainer = styled.div`
+    background:#cccccc;
+`
+
+const SendContainer = styled.div`
+background:red;
+`
