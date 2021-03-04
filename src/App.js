@@ -13,7 +13,7 @@ function App() {
 const [rooms,setRooms] = useState([]);
 
 const getChannels = () => {
-  db.collection("rooms").onSnapshot((snapshot) => {
+  db.collection("rooms").onSnapshot((snapshot) => {     //In map function use middle bracket because we are wrighting code inside JavaScript functions.
     setRooms(snapshot.docs.map((doc,key) => {
       return {id: doc.id, name: doc.data().name};
     }))

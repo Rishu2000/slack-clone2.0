@@ -34,7 +34,7 @@ function Sidebar(props) {
                     <AddIcon/>
                 </NewChannelContainer>
                 <ChannelsList>
-                    {props.rooms.map((data,key) => (
+                    {props.rooms.map((data,key) => (    //In map function use small bracket because we are wrighting code inside HTML tags.
                         <Channel key={key}>
                             # {data.name}
                         </Channel>
