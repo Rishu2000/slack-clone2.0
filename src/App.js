@@ -24,8 +24,6 @@ useEffect(() => {
   getChannels();
 },[])
 
-console.log(rooms);
-
 
   return (
     <div className="App">
@@ -33,7 +31,7 @@ console.log(rooms);
         <Container>
           <Header/>
           <Main>
-            <Sidebar/>
+            <Sidebar rooms={rooms}/>
         <Switch>
           <Route path="/room">
             <Chat/>
