@@ -8,3 +8,12 @@ const firebaseConfig = {
     messagingSenderId: "565082779298",
     appId: "1:565082779298:web:594004a538b282341a31fb"
   };
+
+//To initilize the firebase App.
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+//To get Assess to that firebase App.
+const db = firebaseApp.firestore();
+
+//To use the data we need to export it
+export default db;
