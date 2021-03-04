@@ -59,7 +59,7 @@ export default Sidebar
 const Container = styled.div`
     background:#3F0E40;
     display:grid;
-    grid-template-rows:64px auto 1fr;
+    grid-template-rows:64px auto 1fr;   //grid-template-rows:64px auto auto; then it will divide the space into 50/50 (half).
 ` 
 
 const WorkSpaceContainer = styled.div`
