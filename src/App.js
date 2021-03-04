@@ -15,15 +15,16 @@ const [rooms,setRooms] = useState([]);
 const getChannels = () => {
   db.collection("rooms").onSnapshot((snapshot) => {
     setRooms(snapshot.docs.map((doc,key) => {
-      return doc.data();
+      return {id: doc.id, name: doc.data().name};
     }))
   })
 }
 
 useEffect(() => {
   getChannels();
-  console.log(rooms);
 },[])
+
+console.log(rooms);
 
 
   return (
