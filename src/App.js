@@ -11,6 +11,7 @@ import db from "./firebase"
 function App() {
 
 const [rooms,setRooms] = useState([]);
+const [user,setUser] = useState();
 
 const getChannels = () => {
   db.collection("rooms").onSnapshot((snapshot) => {     //In map function use middle bracket because we are wrighting code inside JavaScript functions.
@@ -28,7 +29,9 @@ useEffect(() => {
   return (
     <div className="App">
       <Router>
-        <Container>
+        {
+          !user?<Login/>:
+          <Container>
           <Header/>
           <Main>
             <Sidebar rooms={rooms}/>
@@ -42,6 +45,7 @@ useEffect(() => {
         </Switch>
         </Main>
         </Container>
+        }
       </Router>
     </div>
   );
