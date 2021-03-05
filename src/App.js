@@ -22,7 +22,7 @@ const getChannels = () => {
   })
 }
 
-const signOut = () => {
+const signOut = () => {             //Important function used {auth.signOut()}
   auth.signOut().then(() => {       //We do not require 'provider' as signOut argument because we do not need permission from Google for logingOut. 
     localStorage.removeItem('user');
     setUser(null);
