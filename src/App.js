@@ -11,7 +11,7 @@ import db from "./firebase"
 function App() {
 
 const [rooms,setRooms] = useState([]);
-const [user,setUser] = useState();
+const [user,setUser] = useState(JSON.parse(localStorage.getItem('user')));
 
 const getChannels = () => {
   db.collection("rooms").onSnapshot((snapshot) => {     //In map function use middle bracket because we are wrighting code inside JavaScript functions.
