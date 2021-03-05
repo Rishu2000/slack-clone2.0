@@ -66,6 +66,3 @@ const Text = styled.div``
 const Info = styled(InfoOutlinedIcon)`
     padding:8px;
 `
-
-const ChatContainer = styled.div`
-`

@@ -6,7 +6,7 @@ function ChatMessage() {
         <Container>
             <MessageContainer>
                 <ImgContainer>
-                    <img src="https://randomuser.me/api/portraits/men/88.jpg" alt="Person Image"/>
+                    <img src="https://randomuser.me/api/portraits/men/88.jpg" alt="Person"/>
                 </ImgContainer>
                 <InfoContainer>
                 <Name>Rishav Kumar Shah 
@@ -50,7 +50,7 @@ const Name = styled.div`
     span{
         margin-left:8px;
         font-weight:400;
-        font-size:13px;
+        font-size:10px;
         color: rgb(97,96,97);
     }
 `
