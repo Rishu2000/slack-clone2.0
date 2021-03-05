@@ -35,6 +35,8 @@ const MinContainer = styled.div`
     flex-direction:column;
     align-items:center;
     justify-content:center;
+    box-shadow: 5px 10px 8px #ff66ff;
+    border-radius:4px;
 
     h1{
         color:white;
