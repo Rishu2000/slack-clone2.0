@@ -15,5 +15,10 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 //To get Assess to that firebase App.
 const db = firebaseApp.firestore();
 
+const auth = firebase.auth();
+
+const provider = new firebase.auth.GoogleAuthProvider();
+
+export {auth, provider};
 //To use the data we need to export it
 export default db;
