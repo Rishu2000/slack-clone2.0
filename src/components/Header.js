@@ -4,7 +4,8 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
-function Header() {
+function Header({user}) {
+    console.log(user);
     return (
         <Container>
             <Main>
@@ -18,11 +19,11 @@ function Header() {
             </Main>
             <UserContainer>
                 <Name>
-                    Rishav
+                    {user.name}
                 </Name>
                 <UserImage>
-                    {/* <img src="" alt=""/> */}
-                    <AccountBoxIcon/>
+                    <img src={user.photo?user.photo:"http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png"} alt=""/>
+                    {/* <AccountBoxIcon/> */}
                 </UserImage>
             </UserContainer>
         </Container>
@@ -95,10 +96,9 @@ const UserImage = styled.div`
     border:2px solid white;
     border-radius:3px;
 
-    /* img{
+    img{
         width:100%;
-        height:100%;
-    } */
+    }
     /* .MuiSvgIcon-root{
         width:100%;
         height:100%;
