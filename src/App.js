@@ -7,6 +7,7 @@ import styled from "styled-components"
 import Header from "./components/Header"
 import Sidebar from "./components/Sidebar"
 import db from "./firebase"
+import {auth} from "./firebase"
 
 function App() {
 
@@ -21,6 +22,13 @@ const getChannels = () => {
   })
 }
 
+const signOut = () => {
+  auth.signOut().then(() => {       //We do not require 'provider' as signOut argument because we do not need permission from Google for logingOut. 
+    localStorage.removeItem('user');
+    setUser(null);
+  })
+}
+
 useEffect(() => {
   getChannels();
 },[])
@@ -32,7 +40,7 @@ useEffect(() => {
         {
           !user?<Login setUser={setUser}/>:
           <Container>
-          <Header user={user}/>
+          <Header user={user} signOut={signOut}/>
           <Main>
             <Sidebar rooms={rooms}/>
         <Switch>

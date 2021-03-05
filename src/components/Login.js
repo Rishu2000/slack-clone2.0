@@ -5,7 +5,7 @@ import {auth,provider} from "../firebase"
 function Login(props) {
 
     const signIn = () => {
-        auth.signInWithPopup(provider)
+        auth.signInWithPopup(provider)     
         .then((result) => {
             const newUser = {
                 name: result.user.displayName,
