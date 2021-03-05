@@ -2,7 +2,6 @@ import React from 'react'
 import styled from "styled-components"
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 function Header({user}) {
     console.log(user);
@@ -99,8 +98,4 @@ const UserImage = styled.div`
     img{
         width:100%;
     }
-    /* .MuiSvgIcon-root{
-        width:100%;
-        height:100%;
-    } */
 `
