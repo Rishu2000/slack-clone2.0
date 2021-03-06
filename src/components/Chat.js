@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'      
+import React, {useEffect, useState} from 'react'      
 import styled from "styled-components"
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import ChatInput from "./ChatInput"
@@ -8,11 +8,12 @@ import db from "../firebase"
 
 function Chat() {
 
+    const [channel,setChannel] = useState();
     let {channelId} = useParams();      //Use useParams() to get data from URL opposite of useHistory().
 
     const getChannel = () => {
         db.collection('rooms').doc(channelId).onSnapshot((snapshot) => {
-            console.log(snapshot.data());
+            setChannel(snapshot.data());
         })
     }
 
@@ -25,7 +26,7 @@ function Chat() {
             <Header>
                 <ChannelInfo>
                     <ChannelName>
-                        # clever
+                        # {channel.name}
                     </ChannelName>
                     <ChannelDisc>
                         Company-wise announcements and work-based matters.
