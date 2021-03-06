@@ -1,10 +1,25 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from "styled-components"
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import ChatInput from "./ChatInput"
 import ChatMessage from './ChatMessage';
+import {useParams} from "react-router-dom"
+import db from "../firebase"
 
 function Chat() {
+
+    let {channelId} = useParams();
+
+    const getChannel = () => {
+        db.collection('rooms').doc(channelId).onSnapshot((snapshot) => {
+            console.log(snapshot.data());
+        })
+    }
+
+    useEffect(() => {
+        getChannel();
+    },[channelId])
+
     return (
         <Container>
             <Header>
