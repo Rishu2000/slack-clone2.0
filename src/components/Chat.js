@@ -8,7 +8,7 @@ import db from "../firebase"
 
 function Chat() {
 
-    let {channelId} = useParams();
+    let {channelId} = useParams();      //Use useParams() to get data from URL opposite of useHistory().
 
     const getChannel = () => {
         db.collection('rooms').doc(channelId).onSnapshot((snapshot) => {
