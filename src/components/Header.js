@@ -4,7 +4,6 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
 function Header({user, signOut}) {
-    console.log(user);
     return (
         <Container>
             <Main>
