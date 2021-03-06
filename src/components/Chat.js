@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect} from 'react'      
 import styled from "styled-components"
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import ChatInput from "./ChatInput"
@@ -16,7 +16,7 @@ function Chat() {
         })
     }
 
-    useEffect(() => {
+    useEffect(() => {       //Passes the argument channelId so that whenever it changes useEffect() runs.
         getChannel();
     },[channelId])
 
