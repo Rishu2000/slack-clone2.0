@@ -47,6 +47,9 @@ useEffect(() => {
           <Route path="/room/:channelId">
             <Chat/>
           </Route>
+          <Route path="/">
+            <h1>Select Channel from Left.</h1>
+          </Route>
         </Switch>
         </Main>
         </Container>
