@@ -20,7 +20,7 @@ function Chat() {
 
     const getMessage = () => {
         db.collection('rooms').doc(channelId).collection('message')
-        .orderBy('timestamp','asc')
+        .orderBy('timestamp','asc')         //Important fun 2nd argument is 'Assending' or desc 'Desending'
         .onSnapshot((snapshot) => {
             let messages = snapshot.docs.map((item) => item.data());
             console.log(messages);
