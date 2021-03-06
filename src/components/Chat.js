@@ -10,6 +10,7 @@ function Chat() {
 
     const [channel,setChannel] = useState();
     let {channelId} = useParams();      //Use useParams() to get data from URL opposite of useHistory().
+    const [messages, setMessages] = useState([]);
 
     const getChannel = () => {
         db.collection('rooms').doc(channelId).onSnapshot((snapshot) => {
@@ -17,8 +18,19 @@ function Chat() {
         })
     }
 
+    const getMessage = () => {
+        db.collection('rooms').doc(channelId).collection('message')
+        .orderBy('timestamp','asc')
+        .onSnapshot((snapshot) => {
+            let messages = snapshot.docs.map((item) => item.data());
+            console.log(messages);
+            setMessages(messages);
+        })
+    }
+
     useEffect(() => {       //Passes the argument channelId so that whenever it changes useEffect() runs.
         getChannel();
+        getMessage();
     },[channelId])
 
     return (
