@@ -23,7 +23,6 @@ function Chat() {
         .orderBy('timestamp','asc')         //Important fun 2nd argument is 'Assending' or desc 'Desending'
         .onSnapshot((snapshot) => {
             let messages = snapshot.docs.map((item) => item.data());
-            console.log(messages);
             setMessages(messages);
         })
     }
@@ -49,7 +48,19 @@ function Chat() {
                     <Info/>
                 </ChannelDetail>
             </Header>
-            <ChatMessage/>
+            <MessageContainer>
+                {
+                    messages.length > 0 && 
+                    messages.map((data,key) => (
+                        <ChatMessage key={key}
+                            name={data.user}
+                            message={data.text}
+                            image={data.userImage}
+                            timestamp={data.timestamp}
+                        />
+                    ))
+                }
+            </MessageContainer>
             <ChatInput/>
         </Container>
     )
@@ -94,3 +105,5 @@ const Text = styled.div``
 const Info = styled(InfoOutlinedIcon)`
     padding:8px;
 `
+
+const MessageContainer = styled.div``
