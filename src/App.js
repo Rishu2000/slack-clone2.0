@@ -45,7 +45,7 @@ useEffect(() => {
             <Sidebar rooms={rooms}/>
         <Switch>
           <Route path="/room/:channelId">
-            <Chat/>
+            <Chat user={user}/>
           </Route>
           <Route path="/">
             <h1>Select Channel from Left.</h1>

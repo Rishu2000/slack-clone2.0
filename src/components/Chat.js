@@ -5,8 +5,9 @@ import ChatInput from "./ChatInput"
 import ChatMessage from './ChatMessage';
 import {useParams} from "react-router-dom"
 import db from "../firebase"
+import firebase from "firebase"
 
-function Chat() {
+function Chat({user}) {
 
     const [channel,setChannel] = useState();
     let {channelId} = useParams();      //Use useParams() to get data from URL opposite of useHistory().
@@ -25,6 +26,17 @@ function Chat() {
             let messages = snapshot.docs.map((item) => item.data());
             setMessages(messages);
         })
+    }
+
+    const sendMessage = (text) => {
+        let payload = {
+            text:text,
+            user:user.name,
+            timestamp:firebase.firestore.Timestamp.now(),
+            userImage:user.photo
+        }
+        db.collection('rooms').doc(channelId).collection('message')
+        .add(payload);
     }
 
     useEffect(() => {       //Passes the argument channelId so that whenever it changes useEffect() runs.
@@ -61,7 +73,7 @@ function Chat() {
                     ))
                 }
             </MessageContainer>
-            <ChatInput/>
+            <ChatInput sendMessage={sendMessage}/>
         </Container>
     )
 }
