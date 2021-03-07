@@ -18,8 +18,8 @@ function ChatInput({sendMessage}) {
                     <input 
                         onChange = {(e) => setInput(e.target.value)}        //Way to get data from input field.
                         type="text" 
-                        placeholder="Message here..."/>
-                    <SendButton onClick={send} type="submit">
+                        placeholder="Message here..."/>    
+                    <SendButton onClick={send} type="submit">      {/* Made  {type="submit"} to submit value after clicking Enter.*/}
                         <SendIcon/>
                     </SendButton>
                 </form>
@@ -58,7 +58,7 @@ const InputContainer = styled.div`
     }
 `
 
-const SendButton = styled.button`
+const SendButton = styled.button`       //TO made it work after clicking ENTER {.button}.
     border:none;
     background:green;
     border-radius:2px;
