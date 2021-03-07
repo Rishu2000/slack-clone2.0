@@ -32,7 +32,7 @@ function Chat({user}) {
         let payload = {
             text:text,
             user:user.name,
-            timestamp:firebase.firestore.Timestamp.now(),
+            timestamp:firebase.firestore.Timestamp.now(),   //Important-> way to get current Time. 
             userImage:user.photo
         }
         db.collection('rooms').doc(channelId).collection('message')
