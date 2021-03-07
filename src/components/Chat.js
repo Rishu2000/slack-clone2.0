@@ -122,5 +122,5 @@ const Info = styled(InfoOutlinedIcon)`
 const MessageContainer = styled.div`
     display:flex;
     flex-direction:column;
-    overflow-y:scroll;
+    overflow-y:scroll;          //Way to add a scroll-bar.
 `
