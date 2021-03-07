@@ -10,6 +10,7 @@ function ChatInput({sendMessage}) {
         e.preventDefault();
         if(!input) return;
         sendMessage(input);
+        setInput("");
     }
     return (
         <Container>
@@ -18,6 +19,7 @@ function ChatInput({sendMessage}) {
                     <input 
                         onChange = {(e) => setInput(e.target.value)}        //Way to get data from input field.
                         type="text" 
+                        value={input}
                         placeholder="Message here..."/>    
                     <SendButton onClick={send} type="submit">      {/* Made  {type="submit"} to submit value after clicking Enter.*/}
                         <SendIcon/>
