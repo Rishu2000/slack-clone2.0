@@ -16,7 +16,7 @@ function ChatInput({sendMessage}) {
             <InputContainer>
                 <form>
                     <input 
-                        onChange = {(e) => setInput(e.target.value)}
+                        onChange = {(e) => setInput(e.target.value)}        //Way to get data from input field.
                         type="text" 
                         placeholder="Message here..."/>
                     <SendButton onClick={send} type="submit">
