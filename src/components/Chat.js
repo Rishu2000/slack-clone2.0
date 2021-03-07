@@ -38,7 +38,7 @@ function Chat() {
             <Header>
                 <ChannelInfo>
                     <ChannelName>
-                        # {channel?channel.name:"Select Channel"}
+                        # {channel && channel.name}
                     </ChannelName>
                     <ChannelDisc>
                         Company-wise announcements and work-based matters.
