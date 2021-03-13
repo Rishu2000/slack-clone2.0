@@ -1,5 +1,5 @@
 import React/*, {useState}*/ from 'react'
-import styled from "styled-components"
+import styled, {ThemeProvider} from "styled-components"
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import {sidebarItems} from "../data/SidebarData"
 import AddIcon from '@material-ui/icons/Add';
@@ -7,6 +7,11 @@ import db from "../firebase"
 import {useHistory} from "react-router-dom"     //Used Important package 'useHistory' to move among URL.
 
 function Sidebar(props) {
+
+    const sidebarColor = props.bgColor?"#993333":"#3F0E40";
+    const theme = {
+        headerColor: props.bgColor?"#602020":"#350d36"
+    }
 
     // const [bgColor,setBgColor] = useState(false);
     const history = useHistory();
@@ -29,13 +34,14 @@ function Sidebar(props) {
     }
 
     return (
-        <Container style={{background:props.bgColor?"#993333":"#3F0E40"}}>
+        <ThemeProvider theme={theme}>
+        <Container style={{background:sidebarColor}}>
             <WorkSpaceContainer>
                 <Name>
                     Rishav
                 </Name>
                 <BgChangerButton>
-                    <button onClick={bgChange} style={{background:props.bgColor?"#993333":"#3F0E40"}}>Change</button>
+                    <button onClick={bgChange} style={{background:sidebarColor}}>Change</button>
                 </BgChangerButton>
                 <NewMessage>
                     <AddCircleOutlineIcon/>
@@ -67,6 +73,7 @@ function Sidebar(props) {
                 </ChannelsList>
             </ChannelContainer>
         </Container>
+        </ThemeProvider>
     )
 }
 
@@ -143,7 +150,7 @@ const MainChannelItems = styled.div`
     cursor:pointer;
     
     :hover{
-        background:#350D36;
+        background:${(props) => props.theme.headerColor};
     }
 `
 
@@ -173,6 +180,6 @@ const Channel = styled.div`
     cursor:pointer;
 
     :hover{
-        background:#350D36;
+        background:${(props) => props.theme.headerColor};
     }
 `
