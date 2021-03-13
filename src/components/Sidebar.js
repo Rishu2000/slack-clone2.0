@@ -26,7 +26,6 @@ function Sidebar(props) {
 
     const bgChange = () => {
         setBgColor(!bgColor);
-        console.log(bgColor);
     }
 
     return (
@@ -36,7 +35,7 @@ function Sidebar(props) {
                     Rishav
                 </Name>
                 <BgChangerButton>
-                    <button onClick={bgChange}>Change</button>
+                    <button onClick={bgChange} style={{background:bgColor?"red":"orange"}}>Change</button>
                 </BgChangerButton>
                 <NewMessage>
                     <AddCircleOutlineIcon/>
@@ -104,7 +103,8 @@ const BgChangerButton = styled.div`
         font-size:1rem;
         border:none;
         border-radius:4px;
-        background:red;
+        /* background:red; */
+        /* background: ${(props) => props.bgColor?"red":"green"}; */
         outline:none;           //To remove focus border after clicked.
     }
 `
