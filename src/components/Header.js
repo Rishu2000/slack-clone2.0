@@ -3,9 +3,9 @@ import styled from "styled-components"
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
-function Header({user, signOut}) {
+function Header({user, signOut, bgColor}) {
     return (
-        <Container>
+        <Container style={{background:bgColor?"#602020":"#350d36"}}>
             <Main>
                 <AccessTimeIcon/>
                 <SearchContainer>
@@ -31,7 +31,7 @@ function Header({user, signOut}) {
 export default Header
 
 const Container = styled.div`
-    background:#350d36;
+    /* background:#350d36; */
     color:white;
     display: flex;
     align-items:center; 

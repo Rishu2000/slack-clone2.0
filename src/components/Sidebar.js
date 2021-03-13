@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React/*, {useState}*/ from 'react'
 import styled from "styled-components"
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import {sidebarItems} from "../data/SidebarData"
@@ -8,7 +8,7 @@ import {useHistory} from "react-router-dom"     //Used Important package 'useHis
 
 function Sidebar(props) {
 
-    const [bgColor,setBgColor] = useState(false);
+    // const [bgColor,setBgColor] = useState(false);
     const history = useHistory();
 
     const addChannel = () => {
@@ -25,17 +25,17 @@ function Sidebar(props) {
     }
 
     const bgChange = () => {
-        setBgColor(!bgColor);
+        props.setBgColor(!props.bgColor);
     }
 
     return (
-        <Container>
+        <Container style={{background:props.bgColor?"#993333":"#3F0E40"}}>
             <WorkSpaceContainer>
                 <Name>
                     Rishav
                 </Name>
                 <BgChangerButton>
-                    <button onClick={bgChange} style={{background:bgColor?"red":"orange"}}>Change</button>
+                    <button onClick={bgChange} style={{background:props.bgColor?"#993333":"#3F0E40"}}>Change</button>
                 </BgChangerButton>
                 <NewMessage>
                     <AddCircleOutlineIcon/>
@@ -74,7 +74,7 @@ export default Sidebar
 
 
 const Container = styled.div`
-    background:#3F0E40;
+    /* background:#3F0E40; */
     display:grid;
     grid-template-rows:64px auto 1fr;   //grid-template-rows:64px auto auto; then it will divide the space into 50/50 (half).
 ` 
@@ -100,12 +100,15 @@ const BgChangerButton = styled.div`
     background:white;
 
     button{
-        font-size:1rem;
+        font-size:0.7rem;
+        color:white;
+        padding:6px 10px;
         border:none;
         border-radius:4px;
         /* background:red; */
         /* background: ${(props) => props.bgColor?"red":"green"}; */
         outline:none;           //To remove focus border after clicked.
+        cursor: pointer;
     }
 `
 

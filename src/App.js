@@ -11,6 +11,7 @@ import {auth} from "./firebase"
 
 function App() {
 
+const [bgColor,setBgColor] = useState(false);
 const [rooms,setRooms] = useState([]);
 const [user,setUser] = useState(JSON.parse(localStorage.getItem('user')));
 
@@ -40,9 +41,9 @@ useEffect(() => {
         {
           !user?<Login setUser={setUser}/>:
           <Container>
-          <Header user={user} signOut={signOut}/>
+          <Header user={user} signOut={signOut} bgColor={bgColor}/>
           <Main>
-            <Sidebar rooms={rooms}/>
+            <Sidebar rooms={rooms} bgColor={bgColor} setBgColor={setBgColor}/>
         <Switch>
           <Route path="/room/:channelId">
             <Chat user={user}/>
