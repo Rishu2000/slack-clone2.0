@@ -29,6 +29,9 @@ function Sidebar(props) {
                 <Name>
                     Rishav
                 </Name>
+                <BgChangerButton>
+                    <button>Change</button>
+                </BgChangerButton>
                 <NewMessage>
                     <AddCircleOutlineIcon/>
                 </NewMessage>
@@ -81,6 +84,24 @@ const WorkSpaceContainer = styled.div`
 `
 
 const Name = styled.div``
+
+const BgChangerButton = styled.div`
+    border-radius:4px;
+    width:85px;
+    height:35px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:white;
+
+    button{
+        font-size:1rem;
+        border:none;
+        border-radius:4px;
+        background:red;
+        outline:none;           //To remove focus border after clicked.
+    }
+`
 
 const NewMessage = styled.div`
     width:36px;
