@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from "styled-components"
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import {sidebarItems} from "../data/SidebarData"
@@ -8,6 +8,7 @@ import {useHistory} from "react-router-dom"     //Used Important package 'useHis
 
 function Sidebar(props) {
 
+    const [bgColor,setBgColor] = useState(false);
     const history = useHistory();
 
     const addChannel = () => {
@@ -23,6 +24,11 @@ function Sidebar(props) {
         }
     }
 
+    const bgChange = () => {
+        setBgColor(!bgColor);
+        console.log(bgColor);
+    }
+
     return (
         <Container>
             <WorkSpaceContainer>
@@ -30,7 +36,7 @@ function Sidebar(props) {
                     Rishav
                 </Name>
                 <BgChangerButton>
-                    <button>Change</button>
+                    <button onClick={bgChange}>Change</button>
                 </BgChangerButton>
                 <NewMessage>
                     <AddCircleOutlineIcon/>
